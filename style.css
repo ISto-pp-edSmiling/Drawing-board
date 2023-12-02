@@ -6,15 +6,12 @@
 }
 
 .nav {
-    width: auto;
-    height: 50px;
-    position: fixed; 
+    width: 50px;
+    height: 910px;
+    position: fixed;
         /*fixed == absolute, if absolute followed you as you scroll*/
     top: 1%;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    align-items: center;
+    left: 1%;
     justify-content: space-around;
     transition: opacity .5s; 
         /* */
@@ -74,20 +71,35 @@ button:hover {
     background-color: #fff;
 }
 
+.buttons {
+    position: absolute;
+    left: 0px;
+}
+
 button{
-    border: none;
-    outline: none;
-    padding: .6em 1em;
-    border-radius: 3px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
     background-color: aquamarine;
     color: #fff;
     border: 3px solid white;
-    font-size: 15px;
+    font-size: 10px;
     font-weight: bold;
+    margin-right: 12px;
 }
 
 .save {
     background-color: #4569DC; 
+}
+
+.buttons .save.active {
+    background-color: #263b80; 
+    box-shadow: -5px;
+}
+
+.buttons .clear.active {
+    background-color: rgb(57, 117, 97);
+    box-shadow: -5px;
 }
 
 input[type="color"] {
@@ -111,10 +123,4 @@ input[type="color"] {
     cursor: ew-resize;
     border: 3px solid white;
     border-radius: 5px;
-    
-}
-
-.emoji {
-    font-size: 40px;
-    padding-bottom: 10px;
 }

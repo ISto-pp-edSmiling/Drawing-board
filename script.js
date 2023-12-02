@@ -39,6 +39,10 @@ clrs.forEach(clr => {
 let clearBtn = document.querySelector('.clear');
 clearBtn.addEventListener('click', () => {
     ctx.clearRect(0,0, canvas.width, canvas.height)
+    clearBtn.classList.add('active');
+    setTimeout(() => {
+        clearBtn.classList.remove('active');
+    }, 120);
 });
 
 let saveBtn = document.querySelector('.save');
@@ -48,6 +52,10 @@ saveBtn.addEventListener('click', () => {
     a.href = data;
     a.download = 'sketch.png'
     a.click();
+    saveBtn.classList.add('active');
+    setTimeout(() => {
+        saveBtn.classList.remove('active');
+    }, 120);
 })
 
 window.addEventListener('mousedown', (e) => draw = true);
@@ -71,3 +79,19 @@ window.addEventListener('mousemove', (e) => {
     prevX = currentX;
     prevY = currentY;
 })
+
+const cKey = (letter) => {
+    if(letter.key == 'c') {
+        ctx.clearRect(0,0, canvas.width, canvas.height);
+        return;
+    }
+    if(letter.key == 's') {
+        let data = canvas.toDataURL('image/png');
+        let a = document.createElement('a')
+        a.href = data;
+        a.download = 'sketch.png'
+        a.click();
+    }
+}
+
+document.addEventListener('keydown', cKey);
