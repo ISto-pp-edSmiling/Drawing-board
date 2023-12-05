@@ -1,7 +1,7 @@
 const canvas = document.querySelector('canvas');
 const body = document.querySelector('body');
 canvas.height = window.innerHeight;
-canvas.width = window.innerWidth
+canvas.width = window.innerWidth;
 
 
 var theColor = '';
@@ -10,15 +10,22 @@ let prevX = null;
 let prevY = null;
 let draw = false;
 
-body.style.backgroundColor = '#FFFFFFF';
+body.style.backgroundColor = '#FFFFFFF'; 
+    // you do not need to state this :)
 var theInput = document.getElementById('favcolor');
 
-theInput.addEventListener('input', function(){
+theInput.addEventListener('input', () => {
     theColor = theInput.value;
     body.style.backgroundColor = theColor;
 }, false);
+// i can not explain ', false'
 
 const ctx = canvas.getContext('2d');
+    // getContext('2d'): The getContext method is called on the canvas
+    // element. This method is used to obtain the rendering context for the
+    // canvas. The argument '2d' specifies that a 2D rendering context
+    // should be retrieved. The 2D rendering context is what allows you to
+    // draw and manipulate graphics on the canvas in a two-dimensional area.
 ctx.lineWidth = lineW;
 
 document.getElementById('ageInputId').oninput = function(){
@@ -39,6 +46,7 @@ clrs.forEach(clr => {
 let clearBtn = document.querySelector('.clear');
 clearBtn.addEventListener('click', () => {
     ctx.clearRect(0,0, canvas.width, canvas.height)
+    const clearBtn = document.querySelector('.clear');
     clearBtn.classList.add('active');
     setTimeout(() => {
         clearBtn.classList.remove('active');
